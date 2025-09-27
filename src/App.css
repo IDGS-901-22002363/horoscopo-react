@@ -1,0 +1,102 @@
+/* Forzar esquema claro y colores visibles aunque el SO esté en dark */
+:root { color-scheme: light; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: #fafafa !important;
+  color: #111 !important;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* Reglas globales para GANAR a cualquier estilo previo */
+h1, h2, h3, p, label, span, div, section {
+  color: #111 !important;
+}
+
+.page { max-width: 1100px; margin: 28px auto 60px; padding: 0 16px; }
+h1 { text-align: center; margin-bottom: 20px; letter-spacing: .5px; }
+
+/* Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 22px;
+}
+
+.panel {
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 6px;
+  padding: 22px;
+  min-height: 420px;
+}
+
+/* Inputs: texto SIEMPRE oscuro */
+.inp {
+  width: 100%;
+  border: 3px solid #111;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 18px;
+  background: #fff !important;
+  color: #111 !important;
+  margin-bottom: 18px;
+}
+
+/* Placeholders visibles */
+.inp::placeholder { color: #666 !important; opacity: 1; }
+
+/* Corregir color en date input (Chrome/Edge/WebKit) */
+input[type="date"] {
+  color-scheme: light;            /* fuerza paleta clara */
+  color: #111 !important;
+  background: #fff !important;
+}
+
+/* Partes internas del date input */
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-clear-button {
+  color: #111 !important;
+}
+
+/* Autofill (cuando Chrome rellena y pone texto blanco) */
+input.inp:-webkit-autofill,
+input.inp:-webkit-autofill:hover,
+input.inp:-webkit-autofill:focus {
+  -webkit-text-fill-color: #111 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  box-shadow: 0 0 0px 1000px #fff inset !important;
+  caret-color: #111 !important;
+}
+
+/* Textos */
+.lbl { display: block; margin-bottom: 8px; font-size: 18px; color: #111 !important; }
+
+.tituloSigno { margin: 0 0 10px 0; font-size: 24px; color: #111 !important; }
+.tituloSigno span { font-weight: 700; color: #111 !important; }
+
+.imgWrap {
+  width: 160px; height: 160px;
+  border: 3px solid #111; border-radius: 6px;
+  display: grid; place-items: center;
+  margin: 16px 0 22px; overflow: hidden;
+}
+.imgWrap img { width: 100%; height: 100%; object-fit: cover; }
+
+.desc h3 { margin: 0 0 8px 0; font-size: 20px; color: #111 !important; }
+.desc p  { line-height: 1.6; font-size: 16px; color: #111 !important; }
+
+.hint { font-size: 12px; color: #666 !important; margin-top: -6px; }
+
+.placeholder {
+  opacity: .8; font-style: italic; display: grid; place-content: center;
+  height: 100%; text-align: center; color: #111 !important;
+}
+
+/* Responsivo */
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
